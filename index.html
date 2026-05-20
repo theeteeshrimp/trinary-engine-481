@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ternary Computing — the future of computation beyond binary. Learn about trits, balanced ternary, and why three-state logic could change everything.">
+  <title>Ternary Computing — Beyond Binary</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Ternary<span class="accent">Lab</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#what">What Is It?</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#balanced">Balanced Ternary</a></li>
+        <li><a href="#history">History</a></li>
+        <li><a href="#future">Future</a></li>
+        <li><a href="#try">Try It</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="glow glow-1"></div>
+      <div class="glow glow-2"></div>
+      <div class="glow glow-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="trit-display">
+        <span class="trit trit-neg">−1</span>
+        <span class="trit trit-zero">0</span>
+        <span class="trit trit-pos">+1</span>
+      </div>
+      <h1>Ternary Computing</h1>
+      <p class="hero-tagline">The future of computation isn't <em>on</em> or <em>off</em>.<br>It's <strong>three</strong>.</p>
+      <a href="#what" class="btn btn-primary">Explore ↓</a>
+    </div>
+  </section>
+
+  <!-- What is Ternary Computing -->
+  <section class="section" id="what">
+    <div class="container">
+      <h2 class="section-title">What Is Ternary Computing?</h2>
+      <p class="section-lead">
+        While modern computers use <strong>binary</strong> (base-2) — where every bit is either 0 or 1 —
+        ternary computing uses <strong>base-3</strong>, where each digit (called a <em>trit</em>) can be 0, 1, or 2.
+      </p>
+
+      <div class="comparison-grid">
+        <div class="card card-binary">
+          <div class="card-icon">⚡</div>
+          <h3>Binary (Base-2)</h3>
+          <div class="digit-row">
+            <span class="digit">0</span>
+            <span class="digit">1</span>
+          </div>
+          <p>Used in every modern digital computer. Two states: off or on.</p>
+          <ul class="card-list">
+            <li>1 bit = 1 binary digit</li>
+            <li>8 bits = 1 byte</li>
+            <li>Simple hardware implementation</li>
+            <li>Dominant for 80+ years</li>
+          </ul>
+        </div>
+
+        <div class="card card-ternary">
+          <div class="card-icon">🔮</div>
+          <h3>Ternary (Base-3)</h3>
+          <div class="digit-row">
+            <span class="digit">0</span>
+            <span class="digit">1</span>
+            <span class="digit">2</span>
+          </div>
+          <p>Three states per digit. More information density per trit.</p>
+          <ul class="card-list">
+            <li>1 trit = ~1.585 bits of information</li>
+            <li>More compact number representation</li>
+            <li>Natural signed number handling</li>
+            <li>Potentially more efficient</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h4>💡 Information Density</h4>
+        <p>
+          A single trit carries <strong>log₂(3) ≈ 1.585 bits</strong> of information.
+          This means you need fewer ternary digits than binary digits to represent the same range of numbers.
+          For example, 5 trits can represent 3⁵ = 243 values, while 5 bits can only represent 2⁵ = 32 values.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it Works -->
+  <section class="section section-dark" id="how">
+    <div class="container">
+      <h2 class="section-title">How It Works</h2>
+      <p class="section-lead">
+        Ternary logic extends Boolean logic from two values to three. Instead of just TRUE and FALSE,
+        there's a third state — often interpreted as <strong>UNKNOWN</strong>, <strong>MAYBE</strong>, or <strong>BOTH</strong>.
+      </p>
+
+      <div class="logic-grid">
+        <div class="logic-card">
+          <h3>Three-Valued Logic</h3>
+          <table class="truth-table">
+            <thead>
+              <tr><th>Operation</th><th>Binary</th><th>Ternary</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>AND (min)</td><td>0, 1</td><td>0, 1, 2</td></tr>
+              <tr><td>OR (max)</td><td>0, 1</td><td>0, 1, 2</td></tr>
+              <tr><td>NOT</td><td>¬0=1, ¬1=0</td><td>¬0=2, ¬1=1, ¬2=0</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="logic-card">
+          <h3>Ternary Gates</h3>
+          <p>Just as binary computers use AND, OR, and NOT gates, ternary computers use their three-valued equivalents:</p>
+          <ul class="gate-list">
+            <li><strong>Consensus Gate</strong> — outputs the majority value among inputs</li>
+            <li><strong>Any Gate</strong> — outputs 2 if any input is 2</li>
+            <li><strong>Cycle Gate</strong> — increments the input mod 3</li>
+            <li><strong>Negation Gate</strong> — maps 0→2, 1→1, 2→0</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="info-box info-box-alt">
+        <h4>🔌 Physical Implementation</h4>
+        <p>
+          Ternary logic can be implemented using multi-level cells in memory (storing more than 2 voltage levels),
+          optical computing with three polarisation states, or quantum computing with qutrits (three-level quantum systems).
+          Modern flash memory already uses multi-level cells (MLC, TLC) that store multiple bits per cell —
+          a step toward multi-valued logic.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Balanced Ternary -->
+  <section class="section" id="balanced">
+    <div class="container">
+      <h2 class="section-title">Balanced Ternary</h2>
+      <p class="section-lead">
+        The most elegant form of ternary uses digits <strong>−1, 0, +1</strong> (often written as <strong>T, 0, 1</strong>).
+        This "balanced" system has remarkable mathematical properties.
+      </p>
+
+      <div class="balanced-showcase">
+        <div class="balanced-card">
+          <h3>Why Balanced?</h3>
+          <div class="balanced-digits">
+            <span class="bal-digit neg">T <small>(−1)</small></span>
+            <span class="bal-digit zero">0</span>
+            <span class="bal-digit pos">1 <small>(+1)</small></span>
+          </div>
+          <p>Balanced ternary is the <strong>most efficient</strong> radix system for representing numbers.
+          It's the base with the lowest radix economy.</p>
+        </div>
+
+        <div class="balanced-card">
+          <h3>Number Conversion</h3>
+          <table class="conversion-table">
+            <thead><tr><th>Decimal</th><th>Binary</th><th>Balanced Ternary</th></tr></thead>
+            <tbody>
+              <tr><td>−5</td><td>−101</td><td>T11</td></tr>
+              <tr><td>−4</td><td>−100</td><td>T10</td></tr>
+              <tr><td>−3</td><td>−11</td><td>T0</td></tr>
+              <tr><td>−2</td><td>−10</td><td>T1</td></tr>
+              <tr><td>−1</td><td>−1</td><td>T</td></tr>
+              <tr><td>0</td><td>0</td><td>0</td></tr>
+              <tr><td>1</td><td>1</td><td>1</td></tr>
+              <tr><td>2</td><td>10</td><td>1T</td></tr>
+              <tr><td>3</td><td>11</td><td>10</td></tr>
+              <tr><td>4</td><td>100</td><td>11</td></tr>
+              <tr><td>5</td><td>101</td><td>1TT</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <h4>✨ The Beauty of Balanced Ternary</h4>
+        <ul class="beauty-list">
+          <li><strong>No sign bit needed</strong> — negative numbers are represented naturally. The leading digit indicates the sign.</li>
+          <li><strong>Rounding = truncating</strong> — rounding to the nearest integer is the same as dropping fractional digits.</li>
+          <li><strong>Symmetry</strong> — negation is simply swapping T and 1. No two's complement needed.</li>
+          <li><strong>Efficient arithmetic</strong> — addition and multiplication tables are smaller and more symmetric.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="section section-dark" id="history">
+    <div class="container">
+      <h2 class="section-title">A Brief History</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">1840</div>
+          <div class="timeline-content">
+            <h3>Thomas Fowler's Wooden Computer</h3>
+            <p>Thomas Fowler built a calculating machine using balanced ternary — one of the earliest known ternary computing devices, made entirely of wood.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1958</div>
+          <div class="timeline-content">
+            <h3>Setun — The First Ternary Computer</h3>
+            <p>Nikolay Brusentsov at Moscow State University built <strong>Setun</strong>, the first practical electronic ternary computer. It used balanced ternary and was remarkably efficient for its time.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1970</div>
+          <div class="timeline-content">
+            <h3>Setun-70</h3>
+            <p>An improved version with a more advanced instruction set. Brusentsov also developed the <strong>Dmitriev</strong> architecture for ternary computing.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">1973</div>
+          <div class="timeline-content">
+            <h3>Production Ends</h3>
+            <p>Production of Setun computers ceased after 50 units. Binary computing had already achieved massive industrial momentum, making ternary commercially unviable at the time.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-year">2000s–Now</div>
+          <div class="timeline-content">
+            <h3>Modern Research</h3>
+            <p>Interest in ternary computing has resurged with quantum computing (qutrits), neuromorphic computing, and the search for alternatives to CMOS scaling limits.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Future -->
+  <section class="section" id="future">
+    <div class="container">
+      <h2 class="section-title">The Future of Ternary</h2>
+      <p class="section-lead">
+        As binary computing approaches physical limits, ternary and multi-valued logic are gaining renewed attention.
+      </p>
+
+      <div class="future-grid">
+        <div class="future-card">
+          <div class="future-icon">⚛️</div>
+          <h3>Qutrits</h3>
+          <p>Quantum computers using three-level quantum systems (qutrits) instead of two-level qubits could offer exponential advantages in certain algorithms.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon">🧠</div>
+          <h3>Neuromorphic Computing</h3>
+          <p>Brain-inspired chips with three or more states per synapse could more closely mimic biological neural networks.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon">💾</div>
+          <h3>Multi-Level Memory</h3>
+          <p>Flash memory already stores multiple bits per cell (TLC, QLC). The next step is natively ternary memory architectures.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon">🔋</div>
+          <h3>Energy Efficiency</h3>
+          <p>Fewer digits needed for the same computation could mean fewer switching events and lower power consumption.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon">🤖</div>
+          <h3>AI & Fuzzy Logic</h3>
+          <p>Three-valued logic maps naturally to fuzzy logic systems used in AI, control systems, and decision-making under uncertainty.</p>
+        </div>
+
+        <div class="future-card">
+          <div class="future-icon">🌐</div>
+          <h3>Optical Computing</h3>
+          <p>Photonic systems can naturally represent three or more states using different light polarisation levels or wavelengths.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Try It -->
+  <section class="section section-dark" id="try">
+    <div class="container">
+      <h2 class="section-title">Try It Yourself</h2>
+      <p class="section-lead">Convert between decimal and balanced ternary in real-time.</p>
+
+      <div class="converter">
+        <div class="converter-inputs">
+          <div class="input-group">
+            <label for="decimalInput">Decimal</label>
+            <input type="number" id="decimalInput" value="42" min="-364" max="364">
+          </div>
+          <div class="converter-arrow">⇄</div>
+          <div class="input-group">
+            <label for="ternaryInput">Balanced Ternary</label>
+            <input type="text" id="ternaryInput" value="1T T10" placeholder="e.g., 11T0">
+          </div>
+        </div>
+        <div class="converter-info">
+          <p id="converterNote">Enter a number to see the conversion.</p>
+        </div>
+      </div>
+
+      <div class="trit-visualizer" id="tritVisualizer">
+        <h3>Trit Representation</h3>
+        <div class="trit-bars" id="tritBars"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p>TernaryLab — Built with 💜 and balanced ternary</p>
+        <p class="footer-small">© 2026 — Because two values aren't always enough.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
